@@ -1,4 +1,4 @@
-# Setup Neovim for React project 26 NOV 2021
+# Setup Neovim for React
 
 ### 1. Install neovim
 
