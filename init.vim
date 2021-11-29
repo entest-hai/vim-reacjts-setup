@@ -78,6 +78,13 @@ imap <C-e> <ESC>A
 map <C-space> :Defx<CR>
 map <C-f> :Defx -toggle<CR>
 
+" netrw config
+let mapleader = ","
+let g:netrw_keepdir = 0
+let g:netrw_winsize = 20
+map <C-a> :Lexplore<CR>
+map <C-d> :Lexplore %:p:h<CR>
+
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
@@ -319,3 +326,30 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+endfunction
+
+" Change file/rec command.
+call denite#custom#var('file/rec', 'command',
+\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
