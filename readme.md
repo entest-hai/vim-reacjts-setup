@@ -207,3 +207,38 @@ let g:netrw_keepdir = 0
 map <C-a> :Lexplore<CR>
 map <C-d> :Lexplore %:p:h<CR>
 ```
+
+### 7. Global config and color
+
+```
+" global neovim config
+:set number
+":set autoindent
+:set tabstop      =2
+:set shiftwidth   =2
+:set softtabstop  =2
+:set expandtab
+:set mouse=a
+:set background=dark
+:set hlsearch
+:set showcmd
+:set title
+```
+
+Cursor movement in both insert and comamnd mode
+
+```
+" move cursor to end of line in both mode
+map <C-a> <ESC>^
+imap <C-a> <ESC>I
+map <C-e> <ESC>$
+imap <C-e> <ESC>A
+```
+
+Cursor highlight color
+
+```
+" highlight current line
+:set cursorline
+:highlight CursorLine cterm=NONE ctermbg=23 ctermfg=NONE guibg=Grey40
+```
