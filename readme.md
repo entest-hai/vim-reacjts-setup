@@ -2,11 +2,19 @@
 
 ### 1. Install neovim
 
+```
 Export PATH={path_to_neovim_bin}
-Simple configuration into .config/nvim/init.vim
+```
+
+Simple configuration into
+
+```
+.config/nvim/init.vim
+```
 
 ### 2. Install dein.vim to manage plugins
 
+Vim-plug also works well </br>
 Download dein.vim insataller by curl
 Update .config/nvim/init/vim
 Test install vim-airline
@@ -102,7 +110,62 @@ function! s:defx_my_settings() abort
 endfunction
 ```
 
-### 4. Install autocompletion and eslint with coc.envm
+### 4. Install denite.vim for file searching
+
+Install
+
+```
+call dein#add('Shougo/denite.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+```
+
+Config
+
+```
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+function! s:denite_filter_my_settings() abort
+  imap <silent><buffer> <C-o> <Plug>(denite_filter_quit)
+endfunction
+
+" Change file/rec command.
+call denite#custom#var('file/rec', 'command',
+\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+```
+
+To use it need to install silver search or other search eigen
+[the silver search git](https://github.com/ggreer/the_silver_searcher)
+
+```
+brew install the_silver_searcher
+```
+
+Usage </br>
+:Denite file/rec </br>
+type i to enter insert mode for Denite buffer </br>
+then type PATTERN to search and open wanted file </br>
+ESC to escape insert mode, enter back to denite list </br>
+
+### 5. Install autocompletion and eslint with coc.envm
 
 ```
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
@@ -121,4 +184,26 @@ let g:coc_global_extensions = [
   \ 'coc-pylsp ',
   \ 'coc-flutter',
   \ ]
+```
+
+### 6. Netrw option instaned of defx
+
+Netrw is slower than defx but working fine, and built-in with neovim. </br>
+Config
+
+```
+" netrw config
+if &columns < 90
+  " If the screen is small, occupy half
+  let g:netrw_winsize = 30
+else
+  " else take 30%
+  let g:netrw_winsize = 20
+endif
+
+let g:netrw_liststyle = 3
+let mapleader = ","
+let g:netrw_keepdir = 0
+map <C-a> :Lexplore<CR>
+map <C-d> :Lexplore %:p:h<CR>
 ```
