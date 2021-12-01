@@ -317,6 +317,26 @@ nnoremap <silent> ;r :<C-u>Dgrep<CR>
 
 ### 9
 
+Move cursor in insert mode
+
+```
+ctr h to left
+ctr l to right
+ctr k to up
+ctr j to down
+```
+
+Another way is to ctr o to back to normal mode for one command
+
+Move cursor in normal mode
+
+```
+b to back one word
+w to forward one word
+^ to go to begining of a line
+$ to go to end of a line
+```
+
 Delete multiple line
 
 ```
