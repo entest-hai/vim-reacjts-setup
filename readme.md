@@ -1,3 +1,26 @@
+# Setup Vim for JS and Python Project </br>
+
+**01 DEC 2201** </br>
+
+##### Summary
+
+- File explore with defx </br>
+- File search with denite and au or so-called silver search </br>
+- coc-eslint (eslint, prettier) for javascript autocompletion, syntax, static analysis, document </br>
+- coc-python, jedit python autocompletion, syntax, static analysis, document </br>
+
+##### file explore with defx </br>
+
+![vim_js_demo_defx](https://user-images.githubusercontent.com/20411077/144238197-ff3b709e-c0b2-4452-a47f-eb3ed891384b.png)
+
+##### file search with denite and au (silver search) </br>
+
+![vim_js_demo_denite](https://user-images.githubusercontent.com/20411077/144238292-a8f5891c-b0e8-4ea9-897a-fb97ec7134aa.png)
+
+##### autocomple with eslint, prettier, coc-js </br>
+
+![vim_js_demo_coc_js_eslint](https://user-images.githubusercontent.com/20411077/144238380-e366e640-6353-4104-9ac1-bc6732bf40f4.png)
+
 # Setup Neovim for React
 
 ### 1. Install neovim
