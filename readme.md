@@ -315,7 +315,7 @@ command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join
 nnoremap <silent> ;r :<C-u>Dgrep<CR>
 ```
 
-### 9
+### 9 Basic thing while editing with Vim 
 
 Move cursor in insert mode
 
