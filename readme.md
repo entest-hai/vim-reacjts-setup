@@ -315,7 +315,7 @@ command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join
 nnoremap <silent> ;r :<C-u>Dgrep<CR>
 ```
 
-### 9 Basic thing while editing with Vim 
+### 9 Basic thing while editing with Vim
 
 Move cursor in insert mode
 
@@ -367,6 +367,22 @@ Open a file in a new tab
 :tabe to open new tabe
 :tabn move to next tab
 :tabp move to prev tab
+```
+
+Split screen vertically
+
+```
+ctr w and v
+ctr w and l
+ctr w and r
+```
+
+move line up and dow
+
+```
+shift up arrow
+shift down arrow
+:m+2
 ```
 
 Search file by denite
