@@ -315,7 +315,21 @@ command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join
 nnoremap <silent> ;r :<C-u>Dgrep<CR>
 ```
 
-### 9 Basic thing while editing with Vim
+### 9 auto close tag, auto pair, and nice jsx format 
+[vim-jsx-pretty](https://github.com/MaxMEllon/vim-jsx-pretty)
+```
+'maxmellon/vim-jsx-pretty'
+```
+[auto-pairs](https://github.com/jiangmiao/auto-pairs)
+```
+'jiangmiao/auto-pairs'
+```
+[vim-closetag](https://github.com/alvan/vim-closetag)
+```
+'alvan/vim-closetag'
+```
+
+### 10 Basic thing while editing with Vim
 
 Move cursor in insert mode
 

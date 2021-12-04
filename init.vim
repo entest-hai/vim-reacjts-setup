@@ -13,9 +13,13 @@ call dein#begin('/home/haitran/.cache/dein')
 call dein#add('/home/haitran/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
+call dein#add('davidhalter/jedi-vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('vim-airline/vim-airline')
+call dein#add('alvan/vim-closetag')
+call dein#add('maxmellon/vim-jsx-pretty')
+call dein#add('jiangmiao/auto-pairs')
 
 call dein#add('Shougo/denite.nvim')
 if !has('nvim')
@@ -35,6 +39,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
+  \ 'coc-python',
+  \ 'coc-pyright',
   \ ]
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
 
@@ -50,18 +56,41 @@ syntax enable
 "  call dein#install()
 "endif
 
+" auto closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
+
 " global neovim config
 :set number
-":set autoindent
 :set tabstop      =2
 :set shiftwidth   =2
 :set softtabstop  =2
 :set expandtab
+" :set cindent
+" :set autoindent
+" :set smartindent
 :set mouse=a
 :set background=dark
 :set hlsearch
 :set showcmd
 :set title
+" search and enter by key word
+set incsearch
+
+
+" move line up and down 
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+
+" move cursor left and right insert mode 
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" move cursor left and right by word insert mode 
+inoremap <A-b> <C-o>b
+inoremap <A-w> <C-o>w
+
 
 " highlight current line
 :set cursorline
@@ -79,6 +108,7 @@ map <C-space> :Defx<CR>
 map <C-f> :Defx -toggle<CR>
 
 " netrw config
+let g:netrw_liststyle = 3
 let mapleader = ","
 let g:netrw_keepdir = 0
 let g:netrw_winsize = 20
@@ -353,3 +383,50 @@ endfunction
 " Change file/rec command.
 call denite#custom#var('file/rec', 'command',
 \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+" deint search config 
+" use floating
+let s:denite_win_width_percent = 0.8
+let s:denite_win_height_percent = 0.7
+let s:denite_default_options = {
+    \ 'split': 'floating',
+    \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+    \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+    \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+    \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+    \ 'highlight_filter_background': 'DeniteFilter',
+    \ 'prompt': 'Œª ',
+    \ 'start_filter': v:true,
+    \ }
+let s:denite_option_array = []
+for [key, value] in items(s:denite_default_options)
+  call add(s:denite_option_array, '-'.key.'='.value)
+endfor
+call denite#custom#option('default', s:denite_default_options)
+
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" grep
+command! -nargs=? Dgrep call s:Dgrep(<f-args>)
+function s:Dgrep(...)
+  if a:0 > 0
+    execute(':Denite -buffer-name=grep-buffer-denite grep -path='.a:1)
+  else
+    let l:path = expand('%:p:h')
+    if has_key(defx#get_candidate(), 'action__path')
+      let l:path = fnamemodify(defx#get_candidate()['action__path'], ':p:h')
+    endif 
+    execute(':Denite -buffer-name=grep-buffer-denite -no-empty '.join(s:denite_option_array, ' ').' grep -path='.l:path)
+  endif
+endfunction
+
+" show Denite grep results
+command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join(s:denite_option_array, ' ').'')
+
+nnoremap <silent> ;r :<C-u>Dgrep<CR>
