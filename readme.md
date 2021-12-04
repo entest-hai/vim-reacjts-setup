@@ -326,6 +326,18 @@ ctr k to up
 ctr j to down
 ```
 
+Setup
+
+```
+ironemap <A-w> <C-o> w
+ironemap <A-b> <C-o> b
+```
+
+```
+alt w
+alt b
+```
+
 Another way is to ctr o to back to normal mode for one command
 
 Move cursor in normal mode
