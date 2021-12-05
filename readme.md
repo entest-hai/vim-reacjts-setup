@@ -432,3 +432,15 @@ Search file by denite
 ```
 :Denite file/rec
 ```
+
+String subtitue current line
+
+```
+:.s/old/new/g
+```
+
+String subtitue entire file
+
+```
+:%s/old/new/g
+```
