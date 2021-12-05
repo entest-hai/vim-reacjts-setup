@@ -44,6 +44,16 @@ Test install vim-airline
 
 ### 3. Install defx.vim for file explore
 
+install defx with dein manage
+
+```
+call dein#add('Shougo/denite.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
+```
+
 Need Python3
 Then install defx plugin by dein.vim
 
@@ -315,16 +325,22 @@ command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join
 nnoremap <silent> ;r :<C-u>Dgrep<CR>
 ```
 
-### 9 auto close tag, auto pair, and nice jsx format 
+### 9 auto close tag, auto pair, and nice jsx format
+
 [vim-jsx-pretty](https://github.com/MaxMEllon/vim-jsx-pretty)
+
 ```
 'maxmellon/vim-jsx-pretty'
 ```
+
 [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+
 ```
 'jiangmiao/auto-pairs'
 ```
+
 [vim-closetag](https://github.com/alvan/vim-closetag)
+
 ```
 'alvan/vim-closetag'
 ```
