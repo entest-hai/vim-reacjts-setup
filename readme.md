@@ -444,3 +444,18 @@ String subtitue entire file
 ```
 :%s/old/new/g
 ```
+
+### 11 remove plug in and reinstall 
+Delete dein directory 
+```
+rm -rf ~/.cache/dein
+```
+Resintall dein 
+```
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.cache/dein
+```
+Open vim and reinstall plugins
+```
+call dein#install()
+```
