@@ -459,3 +459,13 @@ Open vim and reinstall plugins
 ```
 call dein#install()
 ```
+
+### 12 estlint fix on save 
+Need to open **coc-setting.json** and edit </br>
+Reference [here](https://vimawesome.com/plugin/coc-eslint) and [here](https://github.com/neoclide/coc-eslint)
+```
+:CocConfig
+```
+```
+eslint.autoFixOnSave: true 
+```
