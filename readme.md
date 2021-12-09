@@ -444,3 +444,33 @@ String subtitue entire file
 ```
 :%s/old/new/g
 ```
+
+### 11 Debug
+
+Check is eslint server running well or not
+
+```
+:CocCommand: showOutputChannel
+```
+
+Might need to install eslint version in package.json
+
+```
+"eslint": "7.32.0"
+```
+
+Show coc-setting.json
+
+```
+:CocConfig
+```
+
+Content of coc-setting.json
+
+```
+{
+  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true
+}
+```
