@@ -444,6 +444,21 @@ String subtitue entire file
 ```
 :%s/old/new/g
 ```
+Copy to clipboard 
+```
+shift v or ctrl v to visual mode 
+: ! xclip -selection clipboard
+```
+
+Copy from cursor to the end 
+```
+: .,$yank
+```
+Copy from cursor to next x line 
+```
+:start,endyank
+```
+
 
 ### 11 remove plug in and reinstall 
 Delete dein directory 
@@ -556,6 +571,20 @@ npm i -D eslint eslint-config-next prettier
     }
   }
 ```
+eslint ignore un-used-var 
+```
+"varsIgnorePattern": [
+          "^_",
+          "colorMode"
+        ]
+``` 
+
+eslint disable one line 
+```
+// eslint-disable-next-line no-use-before-define
+```
+
+
 prettier.config.js
 ```
 const options = {
