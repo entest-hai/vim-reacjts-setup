@@ -460,42 +460,88 @@ Copy from cursor to next x line
 ```
 
 
-### 11 remove plug in and reinstall 
-Delete dein directory 
+### 11 remove plug in and reinstall
+
+Delete dein directory
+
 ```
 rm -rf ~/.cache/dein
 ```
-Resintall dein 
+
+Resintall dein
+
 ```
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 ```
+
 Open vim and reinstall plugins
+
 ```
 call dein#install()
 ```
 
-### 12 estlint fix on save 
+### 12 estlint fix on save
+
 Need to open **coc-setting.json** and edit </br>
 Reference [here](https://vimawesome.com/plugin/coc-eslint) and [here](https://github.com/neoclide/coc-eslint)
+
 ```
 :CocConfig
 ```
+
 ```
-eslint.autoFixOnSave: true 
+eslint.autoFixOnSave: true
 ```
 
-# Setup eslint and prettier for NextJS 
+### 13 Debug
+
+Check is eslint server running well or not
+
+```
+:CocCommand: showOutputChannel
+```
+
+Might need to install eslint version in package.json
+
+```
+"eslint": "7.32.0"
+```
+
+Show coc-setting.json
+
+```
+:CocConfig
+```
+
+Content of coc-setting.json
+
+```
+{
+  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true
+}
+```
+
+# Setup eslint and prettier for NextJS
+
 **07 DEC 2201**
-### Init project with npm 
+
+### Init project with npm
+
 This will create package.json
+
 ```
 npm init -y
 ```
-### Update package.json 
+
+### Update package.json
+
 ```
 npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion next react react-dom react-table react-icons chakra-ui/icons
 ```
+
 ```
 {
   "name": "haitran-homepage",
@@ -530,10 +576,13 @@ npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion next react r
   }
 }
 ```
-### First page 
+
+### First page
+
 ```
-./pages/index.js 
+./pages/index.js
 ```
+
 ```
 function HomePage() {
   return <div>Welcome to Next.js!</div>
@@ -542,11 +591,14 @@ function HomePage() {
 export default HomePage
 ```
 
-### Eslint and prettier configuration 
+### Eslint and prettier configuration
+
 ```
-npm i -D eslint eslint-config-next prettier 
+npm i -D eslint eslint-config-next prettier
 ```
+
 .eslintrc.json
+
 ```
 {
     "root": true,
@@ -571,6 +623,7 @@ npm i -D eslint eslint-config-next prettier
     }
   }
 ```
+<<<<<<< HEAD
 eslint ignore un-used-var 
 ```
 "varsIgnorePattern": [
@@ -584,8 +637,11 @@ eslint disable one line
 // eslint-disable-next-line no-use-before-define
 ```
 
+=======
+>>>>>>> be862206e2731d796ad757c16f6bfd53ce83344e
 
 prettier.config.js
+
 ```
 const options = {
     arrowParens: 'avoid',
@@ -596,6 +652,6 @@ const options = {
     tabWidth: 2,
     trailingComma: 'none'
   }
-  
+
   module.exports = options
 ```
