@@ -348,6 +348,13 @@ nnoremap <silent> ;r :<C-u>Dgrep<CR>
 ### 10 Basic thing while editing with Vim
 
 Move cursor in insert mode
+```
+cnoremap <S-h> <Left>
+inoremap <S-h> <Left>
+inoremap <S-j> <Down>
+inoremap <S-k> <Up>
+inoremap <S-l> <Right>
+```
 
 ```
 ctr h to left
@@ -623,7 +630,6 @@ npm i -D eslint eslint-config-next prettier
     }
   }
 ```
-<<<<<<< HEAD
 eslint ignore un-used-var 
 ```
 "varsIgnorePattern": [
@@ -636,9 +642,6 @@ eslint disable one line
 ```
 // eslint-disable-next-line no-use-before-define
 ```
-
-=======
->>>>>>> be862206e2731d796ad757c16f6bfd53ce83344e
 
 prettier.config.js
 
