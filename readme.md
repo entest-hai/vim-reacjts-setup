@@ -658,3 +658,24 @@ const options = {
 
   module.exports = options
 ```
+
+### Vim basic things
+15 DEC 2201 <br /> 
+i-insert mode, n-normal mode, v-visual mode <br />
+combine number with <h, i, j, k> to move <br />
+go to begining of a line type 0 <br/>
+go to first line type gg <br /> 
+go to last line type <S-g> <br />
+go to a line number 2 <S-g> <br />
+move word by word type w <br /> 
+move end of word type e <br />
+move by 5 words type 5w <br /> 
+delete a character type x <br /> 
+delete two characters type 2x <br /> 
+delete a word type dw <br />
+delete a line type dd <br />
+delete 10 lines type 10dd <br />
+paste by <p> <br /> 
+replace a character by <r> <new> <br />
+delete a word and into insert <c> <e> <br />
+delete a line and into isnert mode <c> <$> <br /> 
