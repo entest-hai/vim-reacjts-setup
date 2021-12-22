@@ -456,6 +456,10 @@ Copy to clipboard
 shift v or ctrl v to visual mode 
 : ! xclip -selection clipboard
 ```
+```
+shift v to visual line mode 
++y to copy to system 
+```
 
 Copy from cursor to the end 
 ```
@@ -745,6 +749,7 @@ q to quit
 ```
 
 ### vim surround 
+**16 DEC 2021** <br/>
 install 
 ```
 call dein#add('tpope/vim-surround')
