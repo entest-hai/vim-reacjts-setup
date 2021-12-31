@@ -453,6 +453,11 @@ String subtitue entire file
 ```
 Copy to clipboard 
 ```
+map <C-y> "+y
+```
+highlight mode then <C-y> to copy to the clipboard
+
+```
 shift v or ctrl v to visual mode 
 : ! xclip -selection clipboard
 ```
