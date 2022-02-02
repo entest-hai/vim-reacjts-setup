@@ -785,5 +785,8 @@ CocCommand python.setInterpreter
 ```
 configure coc_setting.json
 ```
+:CocConfig
+```
+```
 python.pythonPath
 ```
