@@ -774,4 +774,16 @@ update surround
 ```
 
 
-
+### CocCommand
+check python intepreter, sometimes need to pyenv activate env before open nvim  
+```
+CocCommand workspace.showOutput Pyright 
+```
+set python intepreter
+```
+CocCommand python.setInterpreter 
+```
+configure coc_setting.json
+```
+python.pythonPath
+```
