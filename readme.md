@@ -817,3 +817,18 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 ```
 
+### Vim copy to clipboard 
+check ssh username@hostname -X 
+
+
+check cipboard enable 
+```
+vim version | grep 'clipboard'
+```
+install gvim, xclip, etc if needed 
+
+configure 
+```
+<C-y> "+y
+
+```
