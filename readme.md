@@ -790,3 +790,30 @@ configure coc_setting.json
 ```
 python.pythonPath
 ```
+
+
+### Vim Netrw 
+switch between netrw and vim 
+```
+ctr w + h 
+ctr w + l 
+```
+explore files 
+```
+:Explore 
+:Lexplore 
+```
+### Vim change cursor between insert and normal mode 
+" Reference chart of values 
+"  1 -> blinking block
+"  2 -> solid block 
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
+```
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+```
+
