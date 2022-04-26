@@ -832,3 +832,16 @@ configure
 <C-y> "+y
 
 ```
+
+sometimes need to use vimx and setup 
+```
+ssh -X username@hostname 
+map <C-y> :w !xclip -sel c <CR><CR>
+```
+
+configure ssh server side 
+```
+vim /etc/ssh/sshd_config 
+AddressFamily inet 
+sudo service ssh restart 
+```
